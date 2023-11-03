@@ -8,6 +8,7 @@ import { getVisibleContacts } from 'redux/selectors';
 const ContactList = () => {
   const contacts = useSelector(getVisibleContacts);
   const dispatch = useDispatch();
+  const handleDelete = () => dispatch(removeContact());
 
   return (
     <List>
@@ -15,11 +16,7 @@ const ContactList = () => {
         <Item key={contact.id}>
           {contact.name + ' : ' + contact.number}
           {
-            <Button
-              type="button"
-              name="delete"
-              onClick={() => dispatch(removeContact())}
-            >
+            <Button type="button" name="delete" onClick={handleDelete}>
               &times;
             </Button>
           }

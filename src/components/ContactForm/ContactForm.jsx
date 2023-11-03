@@ -32,9 +32,9 @@ const ContactForm = () => {
         number: '',
       }}
       validationSchema={formSchema}
-      onSubmit={(values, action) => {
-        dispatch(addContact({ values }));
-        action.resetForm();
+      onSubmit={(contact, actions) => {
+        dispatch(addContact({ contact }));
+        actions.resetForm();
       }}
     >
       <StyledForm>
